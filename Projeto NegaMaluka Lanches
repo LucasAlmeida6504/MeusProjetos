@@ -1,0 +1,712 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <locale.h>
+#include <conio.h>
+#include <windows.h>
+	
+	char ob,rr[10],nome[50],endereco[50],obs[50];
+	int item,x,op,z,i,taxa,r=0;
+	float total = 0,ftotal;
+	float qtde[40];
+	float v[40];
+	float v1[40];
+	char c[40][40]; 	
+	void valores();
+	void menu();
+	void pedido();	
+	int main(int argc, char * argv[])
+   {
+   	int rep;
+   	for(rep=0;rep <=40;rep++)
+	 {  
+	   
+	    setlocale(LC_ALL,"Portuguese");
+		char pagamento[50],pag;
+		for(z = 0; z<= 40; z++)
+		{
+	       qtde[z] = 0; 
+		   v[z] = 0;
+		   v1[z] = 0;  
+	    }
+	    char c[40][40] = 
+		{"posizero",
+		
+		"X-BURGUER",
+	
+		
+		"X-SALADA",
+	 
+		
+		"X-BACON",
+	
+		
+		"X-EGG",
+	
+		
+		"CACHORRO QUENTE",
+
+		
+		"X-NEGAMALUKA",
+		
+		
+		"X-NEGAMALUKA SIMPLES",
+		
+		
+		"X-TUDO",
+	
+		
+		"X NEGA MALUKA BIG",
+	
+		
+		"BACON LOVE, REFRI+FRITAS",
+		
+		
+		"NEGAMALUKA ARTESANAL SIMPLES",
+		
+		
+		"NEGAMALUKA CROCANTE, FRITAS",
+		
+		
+		"NEGAMALUKA BIG, FRITAS",
+		
+		
+		"2 X-SALADA + REFRI 500ml",
+		 
+		
+		"COMBO X-NEGA MALUKA",
+	
+		
+		"X-SALADA + FRITAS",
+	
+		
+		"COMBO X-TUDO",
+	
+		
+		"COMBO EGG BACON",
+	
+		
+		"DESATIVADO",
+		
+		
+		"DESATIVADO",
+	
+		
+		"COMBO X-SALADA",
+		
+		
+		"ANÉIS DE CEBOLA",
+	
+		
+		"BATATA FRITA PEQUENA 166g",
+	
+		
+		"BATATA FRITA MÉDIA 250g",
+	
+		
+		"BATATA FRITA GRANDE 500g",
+	
+		
+		"REFRIGERANTE 1,5L",
+		
+		
+		"REFRIGERANTE LATA",
+		
+		
+		"REFRIGERANTE 600ml",
+		
+		
+		"REFRIGERANTE KUAT 2L",
+		
+		
+		"COCA-COLA 2L",
+		
+		
+		"ADICIONAIS",
+		
+		
+		"ADICIONAL CARNE ARTESANAL"
+		
+      };
+        total = 0;
+	    valores();
+	    menu();
+	   
+	    system("cls");		 
+	    
+	    while(item != 99)
+		{
+		   
+		   qtde[0] = 0;
+		   if(item ==  1)
+		    {   
+		        pedido();	   
+		    } 	
+			if(item == 2)
+			{
+		        pedido();
+			} 	   
+			if(item == 3)
+			{				
+		  	    pedido();				
+			}    
+		    if(item == 4)
+			{				
+			    pedido();				
+			}
+		    if(item == 5)
+			{				
+			    pedido();				
+			}           
+		    if(item == 6)
+			{				
+			    pedido();				
+			}   
+		    if(item == 7)
+			{				
+		        pedido();				
+			}
+		   if(item == 8)
+			{				
+				pedido();				
+			}
+		    if(item == 9)
+			{
+				pedido();	
+			}
+		   if(item == 10)
+			{
+				pedido();	
+			}
+		   if(item == 11)
+			{	
+				pedido();	
+			}
+		   if(item == 12)
+			{
+				pedido();	
+			}
+		   if(item == 13)
+			{
+				pedido();	
+			}
+		   if(item == 14)
+			{
+				pedido();	
+			}
+		   if(item == 15)
+			{
+		   	    pedido();	
+			}
+		   if(item == 16)
+			{
+				pedido();
+			}
+		   if(item == 17)
+			{
+				pedido();
+			}
+		   if(item == 18)
+			{
+				pedido();
+			}
+	  	   if(item == 19)
+			{
+				pedido();
+			}
+			if(item == 20)
+			{
+				pedido();
+			}
+			if(item == 21)
+			{
+				pedido();
+			}
+			if(item == 22)
+			{
+				pedido();
+			}
+			if(item == 23)
+			{
+				pedido();
+			}
+			if(item == 24)
+			{
+				pedido();
+			}
+			if(item == 25)
+			{
+				pedido();
+			}
+			if(item == 26)
+			{
+				pedido();
+			}
+			if(item == 27)
+			{
+				pedido();
+			}
+			if(item == 28)
+			{
+				pedido();
+			}
+			if(item == 29)
+			{
+				pedido();
+			}
+			if(item == 30)
+			{
+				pedido();
+			}
+			if(item == 31)
+			{
+				pedido();
+			}
+			if(item == 32)
+			{
+			 printf("Quantidade -> ");
+			 scanf("%f",&qtde[32]);
+			 system("cls");
+			 total = total + (qtde[32] * v[32]);	
+			}
+		    system("cls");	
+
+		    
+	        for(i =0; i <=40 ; i++)
+		    {
+	       	
+	          if(qtde[i] >= 1 && v1[i] == 0){
+	         	v[i] = (qtde[i] * v[i]);
+	         	printf("\n-> %2.f %s R$%.2f ",qtde[i],c[i],v[i]);
+			    v1[i] = v1[i] + 1;
+			    
+			  }else{
+			 	
+			  if(qtde[i] >= 1 && v1[i] == 1)
+	          	printf("\n-> %2.f %s R$%.2f ",qtde[i],c[i],v[i]);		
+			  } 	 	
+		    }
+		    printf("\n");
+	
+	        menu();
+
+		    system("cls");
+	    }
+	   
+	        
+	        printf("\n\t>>>>> [INFORMAÇÕES DO CLIENTE] <<<<<\n"); 
+	        printf("\n Taxa de entrega R$");
+	        taxa = getche();
+	        taxa = taxa - 48;
+	        total = total + taxa;
+ 	        printf("\n\n TOTAL >> [ R$%.2lf ] <<",total);
+	        printf("\n\n NOME: ");
+	        scanf("%s",&nome);
+	        printf("\n ENDEREÇO: ");
+	        gets(endereco);
+	        gets(endereco);
+	        printf("\n QUAL A FORMA DE PAGAMENTO? \n\n");
+	        printf(" D - DINHEIRO \n");
+	        printf(" C - CARTÃO \n");
+	        printf(" P - PIX \n\n");
+	        printf("-> ");
+	        pag = getche();
+	        
+	           if(pag == 'D' || pag == 'd')
+			 {
+			     char pagamento[50] = {"Dinheiro"};	
+			 }
+			   if(pag == 'C' || pag == 'c')
+			 {
+			     char pagamento[50] = {"Cartão"};		
+			 }
+			   if(pag == 'P' || pag == 'p')
+			 {
+			     char pagamento[50] = {"Pix"};		
+			 }
+			 
+	        system("cls");
+	        ftotal += total;
+	        
+	        
+	    	FILE *file;
+	        file = fopen("C:\\Users\\Ana\\Desktop\\TESTE.txt", "a");
+	        
+			printf("\n >>>>>   [ %s ]   <<<<<\n\n",nome);
+			fprintf(file,"\n >>>>>   [ %s ]   <<<<<\n\n",nome);
+			for(x = 0; x<= 33; x++)
+			{
+				
+				if(qtde[x] >=1 )
+				{
+				 	
+				 printf("%2.f -> %s R$%.2f\n",qtde[x],c[x],v[x]);	
+				 fprintf(file,"%2.f -> %s R$%.2f\n",qtde[x],c[x],v[x]);	
+			    }	
+	    	}
+			if(ob == 'S' || ob == 's')
+			{
+	    		printf("\n Observações: %s\n",obs);
+			}
+	    	printf("\n Taxa de entrega R$%d,00",taxa);
+	    	fprintf(file,"\n Taxa de entrega R$%d,00",taxa);
+	    	printf("\n\n Endereço do cliente: %s",endereco);
+	    	printf("\n\n Forma de pagamento: %s",pagamento);
+	    	fprintf(file,"\n\n Forma de pagamento: %s",pagamento);
+	    	if(pag == 'P' || pag == 'p')
+			{
+			    printf("\n\n *Priscila Aires*");
+                printf("\n *CPF - 98770020191*");		
+			}
+	    	 
+         
+		    printf("\n\n *TOTAL >>> R$%.2f <<<*",total);
+		    fprintf(file,"\n\n TOTAL >>> R$%.2f <<<",total);
+	        printf("\n\n *40min à 1h de espera...*");
+	        printf("\n\n %s, você poderia seguir nossa equipe no Instagram e deixar sua recomendação?",nome);
+	        printf("\n\n https://instagram.com/lanchesnegamaluka?igshid=nyj377sh11tt@lanchesnegamaluka");
+	        printf("\n\n Obrigada pela preferência!!!\n");
+	        
+	        printf("\n\n\n");
+	        fprintf(file,"\n\n\n");
+	        fclose(file);
+	        FILE *f;
+	    	f = fopen("C:\\Users\\Ana\\Desktop\\TESTE.txt", "a");
+	    	fprintf(f," \t\t\t   TOTAL DO DIA: >>> R$%.2f <<<\n\n\n",ftotal);
+	    	fclose(f);
+	        Sleep(10000);
+	        printf("Pressione enter para continuar...");
+	        scanf("%c",obs);
+	        system("cls");
+	 }
+	  return 0;  
+    }
+    
+    
+    
+    
+    
+    
+    //=============================================================FUNÇÕES=================================================================
+    
+    
+    
+    void menu (){
+    	if (total == 0)
+		{
+    	   printf("\n             X------------------------------X");
+		   printf("\n             |      >>  TOTAL R$%.2f",total   );
+		   printf("  <<    |");
+		}else{
+		   printf("\n             X------------------------------X");
+		   printf("\n             |      >>  TOTAL R$%.2f",total   );
+		   printf("  <<   |");
+		}   
+		   printf("\n             X==============================X");
+		   printf("\n             |                              |");
+		   printf("\n             |      1 - HAMBÚRGUERS         |");
+		   printf("\n             |                              |");
+		   printf("\n             |      2 - ARTESANAIS          |");
+		   printf("\n             |                              |");
+		   printf("\n             |      3 - PROMOÇÕES           |");
+		   printf("\n             |                              |");
+		   printf("\n             |      4 - BATATAS             |");
+		   printf("\n             |                              |");
+		   printf("\n             |      5 - BEBIDAS             |");
+		   printf("\n             |                              |");
+		   printf("\n             |      6 - ADICIONAIS          |");
+		   printf("\n             |                              |");
+		   printf("\n             |      7 - LIMPAR TUDO         |");
+		   printf("\n             |                              |");
+		   printf("\n             |      8 - ENCERRAR            |");
+		   printf("\n             X==============================X\n\n");
+		   printf("-> "); 
+		   op = getch();
+		   system("cls");
+		   switch(op)
+		   {
+		
+			   case '1':
+			
+			      printf("\n\t    X-------------------------------X");
+			      printf("\n\t    |      >>  HAMBÚRGUERS  <<      |");
+			      printf("\n\t    X===============================X");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     1 - X-BURGUER             |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     2 - X-SALADA              |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     3 - X-BACON               |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     4 - X-EGG                 |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     5 - CACHORRO QUENTE       |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     6 - X-NEGAMALUKA          |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     7 - X-NEGAMALUKA SIMPLES  |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     8 - X-TUDO                |");
+			      printf("\n\t    |                               |");
+			      printf("\n\t    |     9 - X NEGA MALUKA BIG     |");
+			      printf("\n\t    X===============================X\n\n");
+			      printf("-> ");
+			      item = getche();
+				  item = item - 48; 
+			      system("cls");
+			   break;
+			   case '2':
+			
+			      printf("\n X---------------------------------------------------X");
+			      printf("\n |                >> ARTESANAIS <<                   |");
+			      printf("\n X===================================================X");
+			      printf("\n |                                                   |");
+			      printf("\n |   10 - NEGAMALUKA BACON LOVE, REFRI+FRITAS        |");
+			      printf("\n |                                                   |");
+			      printf("\n |   11 - NEGAMALUKA ARTESANAL SIMPLES               |");
+			      printf("\n |                                                   |");
+			      printf("\n |   12 - NEGAMALUKA CROCANTE, FRITAS                |");
+			      printf("\n |                                                   |");
+			      printf("\n |   13 - NEGAMALUKA BIG, FRITAS                     |");
+			      printf("\n X===================================================X\n\n");
+			      printf("-> ");  
+			      item = getche() + getche();
+				  item = item - 87; 
+			      system("cls");
+			   break;
+			   case '3':
+			
+			      printf("\n            X----------------------------------X");
+			      printf("\n            |          >> PROMOÇÕES <<         |");
+			      printf("\n            X==================================X");
+			      printf("\n            |                                  |");
+			      printf("\n            |      15 - COMBO X-NEGA MALUKA    |");
+			      printf("\n            |                                  |");
+			      printf("\n            |      16 - X-SALADA, FRITAS       |");
+			      printf("\n            |                                  |");
+			      printf("\n            |      17 - COMBO X-TUDO           |");
+			      printf("\n            |                                  |");
+			      printf("\n            |      18 - COMBO EGG BACON        |");
+			      printf("\n            |                                  |");
+			      printf("\n            |      21 - COMBO X-SALADA         |");
+			      printf("\n            |                                  |");
+			      printf("\n            |      22 - ANÉIS DE CEBOLA        |");
+			      printf("\n            X==================================X\n\n");
+			      printf("-> ");
+			      item = getche() + getche();
+				  item = item - 87; 
+				  
+				  if(item >= 11 && item <= 13)
+				  {
+				    item = item + 9;
+				  } 
+			      system("cls");
+			   break;
+			   case '4':
+			
+			      printf("\n        X---------------------------------------X");
+			      printf("\n        |          >> BATATA FRITA <<           |");
+			      printf("\n        X=======================================X");
+			      printf("\n        |                                       |");
+			      printf("\n        |      23 - BATATA FRITA PEQUENA 166g   |");
+			      printf("\n        |                                       |");
+			      printf("\n        |      24 - BATATA FRITA MÉDIA 250g     |");
+			      printf("\n        |                                       |");
+			      printf("\n        |      25 - BATATA FRITA GRANDE 500g    |");
+			      printf("\n        X=======================================X\n\n");
+			      printf("-> ");  
+			      item = getche() + getche();
+				  item = item - 87; 
+				  if(item >= 11)
+				  {
+				    item = item + 9; 
+				  } 
+				  
+			      system("cls");
+			   break;
+			   case '5':
+			
+			      
+			      printf("\n          X------------------------------------X");
+			      printf("\n          |            >> BEBIDAS <<           |");
+			      printf("\n          X====================================X");
+			      printf("\n          |                                    |");
+			      printf("\n          |      26 - REFRIGERANTE 1,5L        |");
+			      printf("\n          |                                    |");
+			      printf("\n          |      27 - REFRIGERANTE LATA        |");
+			      printf("\n          |                                    |");
+			      printf("\n          |      29 - REFRIGERANTE KUAT 2L     |");
+			      printf("\n          |                                    |");
+			      printf("\n          |      30 - COCA-COLA 2L             |");
+			      printf("\n          X====================================X\n\n");
+			      printf("-> ");
+			      item = getche() + getche();
+				  item = item - 78; 
+				  if(item == 21)
+				  {
+				    item = item + 9; 
+				  } 
+			      system("cls");
+			   break;
+			   case '6':
+			
+			      printf("\n          X------------------------------------X");
+			      printf("\n          |          >> ADICIONAIS <<          |");
+			      printf("\n          X====================================X");
+			      printf("\n          |                                    |");
+			      printf("\n          |     31 - ADICIONAIS                |");
+			      printf("\n          |                                    |");
+			      printf("\n          |     32 - ADICIONAL CARNE ARTESANAL |");
+			      printf("\n          X====================================X\n\n");
+			      printf("-> ");
+			      item = getche() + getche();
+				  item = item - 87; 
+				  if(item >= 11)
+				  {
+				    item = item + 18; 
+				  } 
+				   
+				  system("cls");  
+			   break;
+			   case '7':
+
+			   	  for(z = 0; z<= 40; z++)
+				  {
+			      	 qtde[z] = 0; 
+				     v1[z] = 0;
+					 v[z] = 0;  
+		    	  }
+		    	  
+		    	  total = 0;
+		    	  item  = 0;
+				  x     = 0;
+				  op    = 0;
+				  z     = 0;
+				  i     = 0;
+				  
+				  valores(); 
+			  
+		  
+			   break;      
+			   default:
+				   
+				  printf("OBSERVAÇÃO? 'S' PARA SIM, 'N' PARA NÃO: "); 
+			      ob = getche();
+				  if(ob == 'S' || ob == 's')
+				  {
+				  	 printf("\nEscreva a observação: ");
+				   	 gets(obs);
+				  }
+				  	
+				  item = 99;
+			   break;
+	        }
+	}
+	
+	void valores(){
+		
+		//X-BURGUER
+	    v[ 1] = 7;
+	    
+	    //X-SALADA 
+	    v[ 2] = 8;
+	    
+	    //X-BACON
+	    v[ 3] = 9;
+	    
+	    //X-EGG
+	    v[ 4] = 10;
+	    
+	    //CACHORRO QUENTE 
+	    v[ 5] = 9;
+	    
+	    //X-NEGAMALUKA  
+	    v[ 6] = 10;
+	    
+	    //X-NEGAMALUKA SIMPLES 
+	    v[ 7] = 9;
+	    
+	    //X-TUDO 
+	    v[ 8] = 12;
+	    
+	    //X NEGA MALUKA BIG 
+	    v[ 9] = 15;
+	    
+	    //BACON LOVE, REFRI+FRITAS
+	    v[10] = 22;
+	    
+	    //NEGAMALUKA ARTESANAL SIMPLES
+	    v[11] = 11.99;
+	    
+	    //NEGAMALUKA CROCANTE, FRITAS 
+	    v[12] = 18.99;
+	    
+	    //NEGAMALUKA BIG, FRITAS
+	    v[13] = 26.99;
+	    
+	    //2 X-SALADA + REFRI 500ml
+	    v[14] = 15.99;
+	    
+	    //COMBO X-NEGA MALUKA
+	    v[15] = 15.99;
+	    
+	    //X-SALADA + FRITAS
+	    v[16] = 12;
+	    
+	    //COMBO X-TUDO
+	    v[17] = 19.99;
+	    
+	    //COMBO EGG BACON
+	    v[18] = 15.99;
+	    
+	    //DESATIVADO 
+	    v[19] = 0;
+	    
+	    //DESATIVADO 
+	    v[20] = 0;
+	    
+	    //X-SALADA, FRITAS+REFFRIGERANTE
+	    v[21] = 14.99;
+	    
+	    //ANÉIS DE CEBOLA
+	    v[22] = 10;
+	    
+	    //BATATA FRITA PEQUENA 166g
+	    v[23] = 4.99;
+	    
+	    //BATATA FRITA MÉDIA 250g 
+	    v[24] = 9.99;
+	    
+	    //BATATA FRITA GRANDE 500g
+	    v[25] = 14.99;
+	    
+	    //REFRIGERANTE 1,5L
+	    v[26] = 0;
+	    
+	    //REFRIGERANTE LATA
+	    v[27] = 4;
+	    
+	    //REFRIGERANTE 600ml 
+	    v[28] = 6;
+	    
+	    //REFRIGERANTE KUAT 2L
+	    v[29] = 6;
+	    
+	    //COCA-COLA 2L 
+	    v[30] = 9;
+	    
+	    //ADICIONAIS
+	    v[31] = 2;
+	    
+	    //ADICIONAL CARNE ARTESANAL
+	    v[32] = 6;
+	}
+	
+    void pedido()
+	{
+	   r = item;
+	   printf("Quantidade -> ");
+	   qtde[r] = getche();
+	   qtde[r] = qtde[r] - 48;
+	   system("cls");
+	   total = total + (qtde[r] * v[r]); 
+	}
