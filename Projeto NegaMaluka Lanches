@@ -354,8 +354,8 @@
 	    	fprintf(file,"\n\n Forma de pagamento: %s",pagamento);
 	    	if(pag == 'P' || pag == 'p')
 			{
-			    printf("\n\n *Priscila Aires*");
-                printf("\n *CPF - 98770020191*");		
+			    printf("\n\n *Fulano*");
+                printf("\n *CPF - 00000000000*");		
 			}
 	    	 
          
